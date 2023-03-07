@@ -4,13 +4,19 @@ import os
 import pandas as pd
 from sklearn import preprocessing
 
+def getColNames(dataframe, col):
+    if type(col) == list:
+        col = list(map(lambda x: x.lower(), col))
+        return [x for x in df.columns if x.lower() in col]
+    col = col.lower()
+    return [x for x in df.columns if x.lower() == col][0]
+
 DEFAULT_MODEL_NAME = "model"
 class Transformer():
     def preprocess(self, dataframe):
         data_to_preprocess = dataframe 
         col_search = ['sex', 'smoker', 'region']
-        C = [x for x in dataframe.columns if x.lower() in col_search]
-        for col in C:
+        for col in getColNames(dataframe,col_search):
             if (data_to_preprocess[col].dtype == 'object'):
                 le = preprocessing.LabelEncoder()
                 le = le.fit(data_to_preprocess[col])
