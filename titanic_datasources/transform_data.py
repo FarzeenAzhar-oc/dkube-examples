@@ -1,18 +1,18 @@
-def getColNames(dataframe, col):
+def getColNames(df, col):
     """
-    Function to  do a case insensitve search for column names in dataframe 
+    Function to  do a case insensitve search for column names in dataframe df 
     corresponding to the ones given in col and return the output
     
     Parameters
     ----------
-    dataframe: dataframe,
+    df: dataframe,
         Dataframe frome which the column names must be take
     col: str, list
         Column names to search for in the dataframe
         
     Returns
     -------
-        A list/string of column names from dataframe corresponding to the one(s) given in col
+        A list/string of column names from dataframe df corresponding to the one(s) given in col
     """
     if type(col) == list:
         col = list(map(lambda x: x.lower(), col))
