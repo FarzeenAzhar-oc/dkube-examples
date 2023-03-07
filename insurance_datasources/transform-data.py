@@ -4,7 +4,7 @@ import os
 import pandas as pd
 from sklearn import preprocessing
 
-def getColNames(dataframe, col):
+def getColNames(df, col):
     """
     Function to  do a case insensitve search for column names in dataframe 
     corresponding to the ones given in col and return the output
