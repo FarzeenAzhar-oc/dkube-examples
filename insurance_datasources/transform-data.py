@@ -8,7 +8,9 @@ DEFAULT_MODEL_NAME = "model"
 class Transformer():
     def preprocess(self, dataframe):
         data_to_preprocess = dataframe 
-        for col in ['sex', 'smoker', 'region']:
+        col_search = ['sex', 'smoker', 'region']
+        C = [x for x in dataframe.columns if x.lower() in col_search]
+        for col in C:
             if (data_to_preprocess[col].dtype == 'object'):
                 le = preprocessing.LabelEncoder()
                 le = le.fit(data_to_preprocess[col])
