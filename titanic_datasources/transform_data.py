@@ -30,4 +30,5 @@ class Transformer():
         train_df = pd.get_dummies(data_to_preprocess[features])
         data_to_preprocess = pd.concat([data_to_preprocess[getColNames(dataframe,["Age", "Fare", "Survived", "PassengerId","timestamp"])], train_df], axis=1)
         preprocessed_data = data_to_preprocess
+        print(preprocessed_data.columns)
         return preprocessed_data
